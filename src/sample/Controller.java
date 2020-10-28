@@ -26,12 +26,25 @@ public class Controller implements Initializable {
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
+    Socket socket;
+
+    {
+        try {
+            if (socket == null) {
+                socket = new Socket("localhost", 8000);
+                System.out.println("connecting");
+                System.out.println(socket == null);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // JAVAFX ELEMENTS
 
-    public TextArea chatBox;
-    public TextField usernameInput;
-    public TextField chatMessage;
+    public TextArea chatBox = new TextArea();
+    public TextField usernameInput = new TextField();
+    public TextField chatMessage = new TextField();
 
     public void sendMessage(String message) throws IOException {
         toServer.writeUTF(message);
@@ -39,7 +52,9 @@ public class Controller implements Initializable {
     }
 
     public String readMessage() throws IOException {
-        return fromServer.readUTF();
+        String m = null;
+        m = fromServer.readUTF();
+        return m;
     }
 
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
@@ -51,7 +66,9 @@ public class Controller implements Initializable {
         stage.show();
 
         // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
-        sendMessage(usernameInput.getText());
+        String message = usernameInput.getText();
+        chatBox.appendText(message);
+        sendMessage(message);
     }
 
     public void sendMessage(ActionEvent actionEvent) throws IOException {
@@ -64,7 +81,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         try{
         // Create a socket to connect to the server
-        Socket socket = new Socket("localhost", 8000);
+
         // Create an input stream to receive data from the server
         fromServer = new DataInputStream(socket.getInputStream());
         // Create an output stream to send data to the server
@@ -72,37 +89,28 @@ public class Controller implements Initializable {
 
         // read thread
         new Thread(() -> {
+            try {
+                if (!chatBox.getText().isEmpty()){
+                chatBox.appendText(readMessage());}
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             // LOBBY LOOP - >
             while(true){
                 try {
                     // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
+                    System.out.println("1");
                     chatBox.appendText(readMessage());
-
-                    if(readMessage().equalsIgnoreCase("START GAME")){
-                        break;
-                    }
-
+                    System.out.println("2");
+                    //if(readMessage().equalsIgnoreCase("START GAME")){
+                    //break;
+                    //}
                 } catch (IOException e) {
-
-                    e.printStackTrace();
-                }
+                    e.printStackTrace(); }
             }
-
-
-
         }).start();
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
     }
-
-
-}
+    }
