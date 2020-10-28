@@ -18,6 +18,7 @@ public class Main extends Application {
         primaryStage.setTitle("QUIZ GAME");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+
     }
 
 
