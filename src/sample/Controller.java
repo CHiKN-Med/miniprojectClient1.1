@@ -31,6 +31,7 @@ public class Controller implements Initializable {
 
     public TextArea chatBox;
     public TextField usernameInput;
+    public TextField chatMessage;
 
     public void sendMessage(String message) throws IOException {
         toServer.writeUTF(message);
@@ -53,6 +54,12 @@ public class Controller implements Initializable {
         sendMessage(usernameInput.getText());
     }
 
+    public void sendMessage(ActionEvent actionEvent) throws IOException {
+        sendMessage(chatMessage.getText());
+        chatMessage.clear();
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
@@ -68,7 +75,6 @@ public class Controller implements Initializable {
             // LOBBY LOOP - >
             while(true){
                 try {
-
                     // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
                     chatBox.appendText(readMessage());
 
@@ -99,7 +105,4 @@ public class Controller implements Initializable {
     }
 
 
-    public void toggleButton(ActionEvent actionEvent) {
-        chatBox.appendText("HEJ MED DIG");
-    }
 }
