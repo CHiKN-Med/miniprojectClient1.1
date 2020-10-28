@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="98eb07b9-4e3c-4a2b-a920-bfd46e7ee55a" name="Default Changelist" comment="">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_0.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/scene1.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/scene2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <ui_properties converted="true" />
+    <breakpoint_rules converted="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -17,27 +81,144 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1jSjpXN5EsSd8xX6eoAQSBxYTVA" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectId" id="1jSjtiwJomWxu86OLlyGnNs8i1F" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RunManager" selected="Application.CLIENT1">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration name="CLIENT1" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="miniClient1-1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CLIENT2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.Main" />
+      <module name="miniClient1-1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CLIENT1" />
+      <item itemvalue="Application.CLIENT2" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="98eb07b9-4e3c-4a2b-a920-bfd46e7ee55a" name="Default Changelist" comment="" />
-      <created>1603804569909</created>
+      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+      <created>1359379246138</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603804569909</updated>
-      <workItem from="1603804571245" duration="35000" />
+      <updated>1359379246138</updated>
+      <workItem from="1359379250712" duration="1302000" />
+      <workItem from="1603804607992" duration="940000" />
     </task>
     <servers />
   </component>
@@ -54,11 +235,98 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="360" y="121" key="new project wizard" timestamp="1603804603391">
+    <state x="86" y="97" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603826317554">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="86" y="97" width="1071" height="700" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.824@0.23.1440.824" timestamp="1603826317554" />
+    <state x="777" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1603819444055">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="777" y="148" key="#com.intellij.ide.util.MemberChooser/0.23.1440.824@0.23.1440.824" timestamp="1603819444055" />
+    <state x="359" y="244" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1603826314748">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="359" y="244" key="#com.intellij.ide.util.TreeClassChooserDialog/0.23.1440.824@0.23.1440.824" timestamp="1603826314748" />
+    <state x="551" y="355" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1603805123775">
       <screen x="0" y="0" width="1536" height="920" />
     </state>
-    <state x="360" y="121" key="new project wizard/0.0.1536.920@0.0.1536.920" timestamp="1603804603391" />
+    <state x="551" y="355" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.920@0.0.1536.920" timestamp="1603805123775" />
+    <state width="1920" height="220" key="GridCell.Tab.0.bottom" timestamp="1603879546095">
+      <screen x="0" y="23" width="1920" height="1004" />
+    </state>
+    <state width="718" height="220" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603821666948" />
+    <state width="1440" height="220" key="GridCell.Tab.0.bottom/0.23.1440.824@0.23.1440.824" timestamp="1603826327035" />
+    <state width="1920" height="220" key="GridCell.Tab.0.bottom/0.23.1920.1004@0.23.1920.1004" timestamp="1603879546095" />
+    <state width="1920" height="220" key="GridCell.Tab.0.center" timestamp="1603879546095">
+      <screen x="0" y="23" width="1920" height="1004" />
+    </state>
+    <state width="718" height="220" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603821666947" />
+    <state width="1440" height="220" key="GridCell.Tab.0.center/0.23.1440.824@0.23.1440.824" timestamp="1603826327034" />
+    <state width="1920" height="220" key="GridCell.Tab.0.center/0.23.1920.1004@0.23.1920.1004" timestamp="1603879546095" />
+    <state width="1920" height="220" key="GridCell.Tab.0.left" timestamp="1603879546095">
+      <screen x="0" y="23" width="1920" height="1004" />
+    </state>
+    <state width="718" height="220" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603821666946" />
+    <state width="1440" height="220" key="GridCell.Tab.0.left/0.23.1440.824@0.23.1440.824" timestamp="1603826327033" />
+    <state width="1920" height="220" key="GridCell.Tab.0.left/0.23.1920.1004@0.23.1920.1004" timestamp="1603879546095" />
+    <state width="1920" height="220" key="GridCell.Tab.0.right" timestamp="1603879546095">
+      <screen x="0" y="23" width="1920" height="1004" />
+    </state>
+    <state width="718" height="220" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603821666947" />
+    <state width="1440" height="220" key="GridCell.Tab.0.right/0.23.1440.824@0.23.1440.824" timestamp="1603826327034" />
+    <state width="1920" height="220" key="GridCell.Tab.0.right/0.23.1920.1004@0.23.1920.1004" timestamp="1603879546095" />
+    <state x="494" y="144" key="RollbackChangesDialog" timestamp="1603819004916">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="494" y="144" key="RollbackChangesDialog/0.23.1440.824@0.23.1440.824" timestamp="1603819004916" />
+    <state x="208" y="23" width="1024" height="824" key="SettingsEditor" timestamp="1603819000291">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="208" y="23" width="1024" height="824" key="SettingsEditor/0.23.1440.824@0.23.1440.824" timestamp="1603819000291" />
+    <state x="586" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603805550567">
+      <screen x="0" y="0" width="1536" height="920" />
+    </state>
+    <state x="586" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.920@0.0.1536.920" timestamp="1603805550567" />
+    <state x="379" y="178" width="925" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1603822974223">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="379" y="178" width="925" height="617" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.824@0.23.1440.824" timestamp="1603822974223" />
+    <state x="504" y="155" key="git4idea.branch.GitSmartOperationDialog" timestamp="1603806413768">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="504" y="155" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.824@0.23.1440.824" timestamp="1603806413768" />
+    <state x="77" y="98" key="new project wizard" timestamp="1603817343647">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="77" y="98" key="new project wizard/0.23.1440.824@0.23.1440.824" timestamp="1603817343647" />
+    <state x="385" y="197" key="run.anything.popup" timestamp="1603818996945">
+      <screen x="0" y="23" width="1440" height="824" />
+    </state>
+    <state x="385" y="197" key="run.anything.popup/0.23.1440.824@0.23.1440.824" timestamp="1603818996945" />
+    <state x="812" y="203" width="894" height="824" key="search.everywhere.popup" timestamp="1603876397701">
+      <screen x="0" y="23" width="1920" height="1004" />
+    </state>
+    <state x="609" y="171" width="670" height="676" key="search.everywhere.popup/0.23.1440.824@0.23.1440.824" timestamp="1603822772551" />
+    <state x="812" y="203" width="894" height="824" key="search.everywhere.popup/0.23.1920.1004@0.23.1920.1004" timestamp="1603876397701" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
