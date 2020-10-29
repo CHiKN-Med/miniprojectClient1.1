@@ -27,6 +27,9 @@ import static java.lang.Thread.sleep;
 public class Controller {
 
 
+    public AnchorPane scene1;
+    public AnchorPane scene2;
+    public AnchorPane scene3;
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
@@ -37,9 +40,11 @@ public class Controller {
     public TextArea chatBox = new TextArea();
     public TextField usernameInput = new TextField();
     public TextField chatMessage = new TextField();
-    public HBox joinBox;
 
     public void initialize() {
+        scene1.setVisible(true);
+        scene2.setVisible(false);
+        scene3.setVisible(false);
         try {
         Socket socket = new Socket("localhost", 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
@@ -68,13 +73,14 @@ public class Controller {
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
         // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
         sendMessage(usernameInput.getText());
-        joinBox.setVisible(false);
+        scene1.setVisible(false);
+        scene2.setVisible(true);
     }
 
 
-    public void sendMessage(ActionEvent actionEvent) throws IOException {
+    public void sendMessageButton(ActionEvent actionEvent) throws IOException {
         sendMessage(chatMessage.getText());
-        // chatMessage.clear();
+        chatMessage.clear();
     }
 
     public void sendMessage(String message) throws IOException {
@@ -87,5 +93,20 @@ public class Controller {
     }
 
 
-
+    public void startGame(ActionEvent actionEvent) {
+        scene2.setVisible(false);
+        scene3.setVisible(true);
     }
+
+    public void answerQOne(ActionEvent actionEvent) {
+    }
+
+    public void answerQTwo(ActionEvent actionEvent) {
+    }
+
+    public void answerQThree(ActionEvent actionEvent) {
+    }
+
+    public void answerQFour(ActionEvent actionEvent) {
+    }
+}
