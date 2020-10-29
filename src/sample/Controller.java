@@ -93,9 +93,11 @@ public class Controller implements Initializable {
     public void sendMessage(ActionEvent actionEvent) throws IOException {
         sendMessage(chatMessage.getText());
         chatMessage.clear();
-
     }
-
+    public void sendInt(int answer) throws IOException{
+        toServer.writeInt((answer));
+        toServer.flush();
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try{
@@ -136,7 +138,7 @@ public class Controller implements Initializable {
     }
     public void answerQOne(ActionEvent actionEvent) {
         System.out.println("Answer one was chosen");
-
+        sendInt(answer);
     }
 
     public void answerQTwo(ActionEvent actionEvent) {
@@ -159,5 +161,6 @@ public class Controller implements Initializable {
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         stage.setScene(scene3);
         stage.show();
+        sendMessage("STARTTHEGAME");
     }
 }
