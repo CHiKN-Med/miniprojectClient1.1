@@ -27,9 +27,7 @@ import static java.lang.Thread.sleep;
 public class Controller {
 
 
-    public AnchorPane scene1;
-    public AnchorPane scene2;
-    public AnchorPane scene3;
+
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
@@ -40,6 +38,10 @@ public class Controller {
     public TextArea chatBox = new TextArea();
     public TextField usernameInput = new TextField();
     public TextField chatMessage = new TextField();
+
+    public AnchorPane scene1;
+    public AnchorPane scene2;
+    public AnchorPane scene3;
 
     public void initialize() {
         scene1.setVisible(true);
@@ -59,7 +61,9 @@ public class Controller {
                     try {
                         // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
                         chatBox.appendText(readMessage());
-                        if (readMessage().equalsIgnoreCase("START GAME")) {
+                        if (readMessage().equalsIgnoreCase("STARTTHEGAME")) {
+                            scene2.setVisible(false);
+                            scene3.setVisible(true);
                             break;
                         }
                     } catch (IOException e) {
@@ -88,14 +92,17 @@ public class Controller {
         toServer.flush();
     }
 
+    public void sendInt(int answer) throws IOException{
+        toServer.writeInt((answer));
+        toServer.flush();
+    }
+
     public String readMessage() throws IOException {
         return fromServer.readUTF();
     }
 
-
-    public void startGame(ActionEvent actionEvent) {
-        scene2.setVisible(false);
-        scene3.setVisible(true);
+    public void startGame(ActionEvent actionEvent) throws IOException {
+        sendMessage("STARTTHEGAME");
     }
 
     public void answerQOne(ActionEvent actionEvent) {
