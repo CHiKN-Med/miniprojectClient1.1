@@ -93,21 +93,34 @@ public class Controller {
     }
 
 
-    public void startGame(ActionEvent actionEvent) {
+    public void startGame(ActionEvent actionEvent) throws IOException {
         scene2.setVisible(false);
         scene3.setVisible(true);
+
+        sendMessage("STARTTHEGAME");
     }
 
-    public void answerQOne(ActionEvent actionEvent) {
+    public void sendInt(int answer) throws IOException{
+        toServer.writeInt((answer));
+        toServer.flush();
+        //QUIZ BUTTON METHODS
+    }
+    public void answerQOne(ActionEvent actionEvent) throws IOException {
+        System.out.println("Answer one was chosen");
+        sendInt(1);
     }
 
     public void answerQTwo(ActionEvent actionEvent) {
+        System.out.println("Answer two was chosen");
     }
 
     public void answerQThree(ActionEvent actionEvent) {
+        System.out.println("Answer three was chosen");
     }
 
     public void answerQFour(ActionEvent actionEvent) {
+        System.out.println("Answer four was chosen");
     }
+
 
 }
