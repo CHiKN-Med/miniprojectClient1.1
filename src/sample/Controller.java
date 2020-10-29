@@ -136,9 +136,9 @@ public class Controller implements Initializable {
 
      //QUIZ BUTTON METHODS
     }
-    public void answerQOne(ActionEvent actionEvent) {
+    public void answerQOne(ActionEvent actionEvent) throws IOException {
         System.out.println("Answer one was chosen");
-        sendInt(answer);
+        sendInt(1);
     }
 
     public void answerQTwo(ActionEvent actionEvent) {
