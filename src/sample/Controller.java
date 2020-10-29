@@ -7,8 +7,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -21,6 +23,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
+
+    //QUIZ BUTTONS
+    public Button answerButtonOne;
+    public Button answerButtonFour;
+    public Button answerButtonThree;
+    public Button answerButtonTwo;
+    public AnchorPane root;
+    public TextField answerOne;
+    public TextField answerTwo;
+    public Button sendMessage;
+    public Button startGame;
+    public TextArea messageArea;
 
 
     // socket attributes - >
@@ -112,5 +126,29 @@ public class Controller implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+     //QUIZ BUTTON METHODS
     }
+    public void answerQOne(ActionEvent actionEvent) {
+
     }
+
+    public void answerQTwo(ActionEvent actionEvent) {
+    }
+
+    public void answerQThree(ActionEvent actionEvent) {
+    }
+
+    public void answerQFour(ActionEvent actionEvent) {
+    }
+
+
+    public void startGame(ActionEvent actionEvent) throws IOException {
+        //CHANGING SCENE TO THE SCENEQUIZ.FXML WITH THE FOLLOWING CODE
+        Parent scene2Parent = FXMLLoader.load(getClass().getResource("quizScene.fxml"));
+        Scene scene3 = new Scene(scene2Parent);
+        Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        stage.setScene(scene3);
+        stage.show();
+    }
+}

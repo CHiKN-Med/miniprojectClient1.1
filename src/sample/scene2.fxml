@@ -6,11 +6,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <children>
-      <Pane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextArea fx:id="chatBox" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="340.0" prefWidth="568.0" />
-      <TextField fx:id="chatMessage" layoutX="14.0" layoutY="359.0" prefHeight="27.0" prefWidth="430.0" />
-      <Button fx:id="sendMessage" layoutX="454.0" layoutY="359.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="27.0" prefWidth="128.0" text="Button" />
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Pane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0"/>
+   <TextArea fx:id="chatBox" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="340.0" prefWidth="568.0"
+             AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0"/>
+   <TextField fx:id="chatMessage" layoutX="14.0" layoutY="359.0" prefHeight="27.0" prefWidth="356.0"
+              AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="230.0"/>
+   <Button fx:id="sendMessage" layoutX="375.0" layoutY="359.0" mnemonicParsing="false" onAction="#sendMessage"
+           prefHeight="27.0" prefWidth="50.0" text="Send" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="174.6"/>
+   <Button fx:id="startGame" layoutX="495.0" layoutY="360.0" mnemonicParsing="false" onAction="#startGame"
+           text="START GAME" AnchorPane.leftAnchor="495.0" AnchorPane.rightAnchor="18.599999999999994"/>
 </AnchorPane>
