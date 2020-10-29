@@ -5,16 +5,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-   <Pane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0"/>
-   <TextArea fx:id="chatBox" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="340.0" prefWidth="568.0"
-             AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0"/>
-   <TextField fx:id="chatMessage" layoutX="14.0" layoutY="359.0" prefHeight="27.0" prefWidth="356.0"
-              AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="230.0"/>
-   <Button fx:id="sendMessage" layoutX="375.0" layoutY="359.0" mnemonicParsing="false" onAction="#sendMessage"
-           prefHeight="27.0" prefWidth="50.0" text="Send" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="174.6"/>
-   <Button fx:id="startGame" layoutX="495.0" layoutY="360.0" mnemonicParsing="false" onAction="#startGame"
-           text="START GAME" AnchorPane.leftAnchor="495.0" AnchorPane.rightAnchor="18.599999999999994"/>
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="547.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <Pane layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" />
+   <TextArea fx:id="chatBox" editable="false" layoutX="14.0" layoutY="42.0" prefHeight="312.0" prefWidth="568.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="42.0" />
+   <TextField fx:id="chatMessage" layoutX="14.0" layoutY="359.0" minHeight="27.0" minWidth="20.0" prefHeight="27.0" prefWidth="356.0" AnchorPane.bottomAnchor="13.8" AnchorPane.leftAnchor="14.0" />
+   <Button fx:id="sendMessage" layoutX="375.0" layoutY="359.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="27.0" prefWidth="60.0" text="Send" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.leftAnchor="375.0" />
+   <Button fx:id="startGame" layoutX="495.0" layoutY="360.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#startGame" prefHeight="27.0" text="START GAME" AnchorPane.bottomAnchor="14.399999999999999" AnchorPane.rightAnchor="18.599999999999994" />
+   <Text layoutX="14.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOBBY" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.89453125">
+      <font>
+         <Font name="Arial" size="20.0" />
+      </font>
+   </Text>
 </AnchorPane>

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,17 +25,23 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    //QUIZ BUTTONS
+    //BUTTONS
+    public Button sendMessage;
+    public Button startGame;
     public Button answerButtonOne;
     public Button answerButtonFour;
     public Button answerButtonThree;
     public Button answerButtonTwo;
+    //PANES
     public AnchorPane root;
+    public AnchorPane quizPanel;
+    //TEXT
     public TextField answerOne;
     public TextField answerTwo;
-    public Button sendMessage;
-    public Button startGame;
     public TextArea messageArea;
+    //LABELS
+    public Label welcomeToQuiz;
+
 
 
     // socket attributes - >
@@ -44,11 +51,9 @@ public class Controller implements Initializable {
 
     {
         try {
-            if (socket == null) {
-                socket = new Socket("localhost", 8000);
-                System.out.println("connecting");
-                System.out.println(socket == null);
-            }
+            socket = new Socket("localhost", 8000);
+            System.out.println("connecting");
+            System.out.println(socket == null);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,7 +71,7 @@ public class Controller implements Initializable {
     }
 
     public String readMessage() throws IOException {
-        String m = null;
+        String m;
         m = fromServer.readUTF();
         return m;
     }
@@ -130,16 +135,20 @@ public class Controller implements Initializable {
      //QUIZ BUTTON METHODS
     }
     public void answerQOne(ActionEvent actionEvent) {
+        System.out.println("Answer one was chosen");
 
     }
 
     public void answerQTwo(ActionEvent actionEvent) {
+        System.out.println("Answer two was chosen");
     }
 
     public void answerQThree(ActionEvent actionEvent) {
+        System.out.println("Answer three was chosen");
     }
 
     public void answerQFour(ActionEvent actionEvent) {
+        System.out.println("Answer four was chosen");
     }
 
 
