@@ -110,16 +110,19 @@ public class Controller {
         sendInt(1);
     }
 
-    public void answerQTwo(ActionEvent actionEvent) {
+    public void answerQTwo(ActionEvent actionEvent) throws IOException {
         System.out.println("Answer two was chosen");
+        sendInt(2);
     }
 
-    public void answerQThree(ActionEvent actionEvent) {
+    public void answerQThree(ActionEvent actionEvent) throws IOException {
         System.out.println("Answer three was chosen");
+        sendInt(3);
     }
 
-    public void answerQFour(ActionEvent actionEvent) {
+    public void answerQFour(ActionEvent actionEvent) throws IOException {
         System.out.println("Answer four was chosen");
+        sendInt(4);
     }
 
 
