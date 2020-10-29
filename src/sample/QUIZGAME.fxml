@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <AnchorPane fx:id="scene1" layoutY="10.0" prefHeight="400.0" prefWidth="610.0">
+      <AnchorPane fx:id="scene1" layoutY="10.0" prefHeight="400.0" prefWidth="610.0" visible="false">
          <children>
                <TextField fx:id="usernameInput" layoutX="20.0" layoutY="141.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
                <Text layoutX="233.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Username:" wrappingWidth="144.70379638671875" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="232.29620361328125">
@@ -27,7 +27,7 @@
                   </font>
                </Button>
          </children></AnchorPane>
-      <AnchorPane fx:id="scene2" layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="scene2" layoutX="10.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <children>
                <Pane prefHeight="200.0" prefWidth="200.0" />
                <TextArea fx:id="chatBox" editable="false" prefHeight="340.0" prefWidth="568.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="14.0" />
@@ -37,7 +37,7 @@
          </children></AnchorPane>
       <AnchorPane fx:id="scene3" layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
-               <SplitPane dividerPositions="0.5802005012531328" prefHeight="423.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <SplitPane dividerPositions="0.6521739130434783" prefHeight="423.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <items>
                      <AnchorPane fx:id="quizPanel" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                         <HBox layoutX="357.0" layoutY="323.0" spacing="10.0" AnchorPane.bottomAnchor="98.0" AnchorPane.rightAnchor="102.0" />
@@ -72,17 +72,13 @@
                      </AnchorPane>
                      <AnchorPane fx:id="chatBoardPanel" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                         <children>
-                           <HBox layoutX="14.0" layoutY="380.0" spacing="5.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="24.0">
-                              <children>
-                                 <TextField layoutX="14.0" layoutY="380.0" prefWidth="241.0" />
-                                 <Button fx:id="sendMessage" layoutX="262.0" layoutY="380.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#sendMessage" text="Send" />
-                              </children>
-                           </HBox>
+                           <HBox layoutX="14.0" layoutY="380.0" spacing="5.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="24.0" />
                            <TextArea fx:id="messageArea" layoutX="21.0" layoutY="40.0" prefHeight="372.0" prefWidth="331.0" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         </children>
                      </AnchorPane>
                   </items>
                </SplitPane>
-         </children></AnchorPane>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
