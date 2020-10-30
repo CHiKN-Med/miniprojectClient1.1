@@ -28,6 +28,7 @@ public class Controller implements Initializable {
     public Button sendMessageButton;
     public Button startGame;
     public TextArea winnerNameBox;
+    public TextArea scoreBoardBox;
 
     // socket attributes - >
     DataOutputStream toServer = null;
@@ -110,7 +111,7 @@ public class Controller implements Initializable {
 
                 // SCORE LOOP
                winnerNameBox.appendText(fromServer.readUTF());
-
+                scoreBoardBox.appendText(fromServer.readUTF());
                     // System.out.println("showScore");
 
 
