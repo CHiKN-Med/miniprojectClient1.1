@@ -27,6 +27,7 @@ public class Controller implements Initializable {
     public Button answerButtonFour;
     public Button sendMessageButton;
     public Button startGame;
+
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
@@ -41,12 +42,16 @@ public class Controller implements Initializable {
     public AnchorPane scene1;
     public AnchorPane scene2;
     public AnchorPane scene3;
+    public AnchorPane scene4;
+    public AnchorPane scene5;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         scene1.setVisible(true);
         scene2.setVisible(false);
         scene3.setVisible(false);
+        scene4.setVisible(false);
+        scene5.setVisible(false);
 
         Socket socket = null;
         try {
@@ -81,6 +86,8 @@ public class Controller implements Initializable {
                         // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
                         quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
                         if(message.equalsIgnoreCase("STOPTHEGAME")){
+                            scene3.setVisible(false);
+                            scene4.setVisible(true);
                             break;
                         }
                         // APPEND QUESTION TO QUIZ BOX
@@ -95,11 +102,13 @@ public class Controller implements Initializable {
                 while(true){
                     String message = fromServer.readUTF();
                     if(message.equalsIgnoreCase("SHOWTHESCORE"))
+                        scene4.setVisible(false);
+                        scene5.setVisible(true);
                         break;
                 }
 
                 while(true){
-                    System.out.println("showScore");
+                    // System.out.println("showScore");
                 }
 
 
