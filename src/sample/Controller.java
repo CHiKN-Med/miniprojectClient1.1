@@ -18,7 +18,7 @@ import static java.lang.Thread.sleep;
 public class Controller implements Initializable {
 
 
-
+    public TextField quizAnswerOptions;
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
@@ -68,6 +68,8 @@ public class Controller implements Initializable {
                 while (true) {
                         String message = fromServer.readUTF();
                         quizBox.appendText(message);
+                        message = fromServer.readUTF();
+                        quizAnswerOptions.appendText(message);
                         }
                 } catch (IOException e) {
                     e.printStackTrace();
