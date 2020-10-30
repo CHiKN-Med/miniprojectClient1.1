@@ -107,10 +107,7 @@ public class Controller implements Initializable {
         return fromServer.readInt();
     }
 
-    public String readMessage() throws IOException {
-        String message = fromServer.readUTF();
-        return message;
-    }
+
 
     public void startGame(ActionEvent actionEvent) throws IOException {
         // IF A USER CLICKS THE START GAME BUTTON A MESSAGE GETS SEND THAT TELLS THE SERVER TO START THE GAME
