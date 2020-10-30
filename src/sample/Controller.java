@@ -19,6 +19,7 @@ public class Controller implements Initializable {
 
 
     public TextField quizAnswerOptions;
+    public TextArea correctAnswer;
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
