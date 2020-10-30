@@ -2,6 +2,7 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -18,8 +19,14 @@ import static java.lang.Thread.sleep;
 public class Controller implements Initializable {
 
 
-    public TextField quizAnswerOptions;
+    public TextArea quizAnswerOptions;
     public TextArea correctAnswer;
+    public Button answerButtonOne;
+    public Button answerButtonTwo;
+    public Button answerButtonThree;
+    public Button answerButtonFour;
+    public Button sendMessageButton;
+    public Button startGame;
     // socket attributes - >
     DataOutputStream toServer = null;
     DataInputStream fromServer = null;
