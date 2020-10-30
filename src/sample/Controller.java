@@ -98,7 +98,7 @@ public class Controller implements Initializable {
                         message = fromServer.readUTF();
                         correctAnswer.appendText(message);
                         }
-
+                // WAITING LOOP
                 while(true){
                     String message = fromServer.readUTF();
                     if(message.equalsIgnoreCase("SHOWTHESCORE"))
@@ -107,6 +107,7 @@ public class Controller implements Initializable {
                         break;
                 }
 
+                // SCORE LOOP
                 while(true){
                     // System.out.println("showScore");
                 }
