@@ -83,6 +83,10 @@ public class Controller implements Initializable {
                 while (true) {
                         // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
                         String message = fromServer.readUTF();
+                        answerButtonOne.setDisable(false);
+                        answerButtonTwo.setDisable(false);
+                        answerButtonThree.setDisable(false);
+                        answerButtonFour.setDisable(false);
                         // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
                         quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
                         if(message.equalsIgnoreCase("STOPTHEGAME")){
@@ -160,18 +164,34 @@ public class Controller implements Initializable {
 
     public void answerQOne(ActionEvent actionEvent) throws IOException {
         sendInt(1);
+        answerButtonOne.setDisable(true);
+        answerButtonTwo.setDisable(true);
+        answerButtonThree.setDisable(true);
+        answerButtonFour.setDisable(true);
     }
 
     public void answerQTwo(ActionEvent actionEvent) throws IOException {
         sendInt(2);
+        answerButtonOne.setDisable(true);
+        answerButtonTwo.setDisable(true);
+        answerButtonThree.setDisable(true);
+        answerButtonFour.setDisable(true);
     }
 
     public void answerQThree(ActionEvent actionEvent) throws IOException {
         sendInt(3);
+        answerButtonOne.setDisable(true);
+        answerButtonTwo.setDisable(true);
+        answerButtonThree.setDisable(true);
+        answerButtonFour.setDisable(true);
     }
 
     public void answerQFour(ActionEvent actionEvent) throws IOException {
         sendInt(4);
+        answerButtonOne.setDisable(true);
+        answerButtonTwo.setDisable(true);
+        answerButtonThree.setDisable(true);
+        answerButtonFour.setDisable(true);
     }
 
 
