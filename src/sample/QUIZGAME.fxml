@@ -35,13 +35,13 @@
                <Button fx:id="sendMessageButton" layoutX="429.0" layoutY="359.0" mnemonicParsing="false" onAction="#sendMessageButton" prefHeight="27.0" prefWidth="50.0" text="Send" AnchorPane.leftAnchor="429.0" AnchorPane.rightAnchor="120.60000000000002" />
                <Button fx:id="startGame" layoutX="486.0" layoutY="359.0" mnemonicParsing="false" onAction="#startGame" prefHeight="27.0" prefWidth="96.0" text="START GAME" AnchorPane.leftAnchor="486.0" AnchorPane.rightAnchor="18.0" />
          </children></AnchorPane>
-      <AnchorPane fx:id="scene3" layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="600.0" visible="false">
+      <AnchorPane fx:id="scene3" layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="600.0">
          <children>
                <SplitPane dividerPositions="0.5802005012531328" prefHeight="423.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <items>
                      <AnchorPane fx:id="quizPanel" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                         <HBox layoutX="357.0" layoutY="323.0" spacing="10.0" AnchorPane.bottomAnchor="98.0" AnchorPane.rightAnchor="102.0" />
-                        <TextArea layoutX="93.0" layoutY="45.0" prefHeight="133.0" prefWidth="293.0" wrapText="true" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="73.0">
+                        <TextArea fx:id="quizBox" layoutX="93.0" layoutY="45.0" prefHeight="133.0" prefWidth="293.0" wrapText="true" AnchorPane.leftAnchor="93.0" AnchorPane.rightAnchor="73.0">
                            <font>
                               <Font size="24.0" />
                            </font>
