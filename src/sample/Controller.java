@@ -165,35 +165,40 @@ public class Controller implements Initializable {
     }
 
     public void answerQOne(ActionEvent actionEvent) throws IOException {
-        sendInt(1);
+        sendInt(1);/*
         answerButtonOne.setDisable(true);
         answerButtonTwo.setDisable(true);
         answerButtonThree.setDisable(true);
         answerButtonFour.setDisable(true);
+        */
     }
 
     public void answerQTwo(ActionEvent actionEvent) throws IOException {
-        sendInt(2);
+        sendInt(2);/*
         answerButtonOne.setDisable(true);
         answerButtonTwo.setDisable(true);
         answerButtonThree.setDisable(true);
         answerButtonFour.setDisable(true);
+        */
     }
 
     public void answerQThree(ActionEvent actionEvent) throws IOException {
-        sendInt(3);
+        sendInt(3);/*
         answerButtonOne.setDisable(true);
         answerButtonTwo.setDisable(true);
         answerButtonThree.setDisable(true);
         answerButtonFour.setDisable(true);
+        */
     }
 
     public void answerQFour(ActionEvent actionEvent) throws IOException {
         sendInt(4);
+        /*
         answerButtonOne.setDisable(true);
         answerButtonTwo.setDisable(true);
         answerButtonThree.setDisable(true);
         answerButtonFour.setDisable(true);
+        */
     }
 
 
