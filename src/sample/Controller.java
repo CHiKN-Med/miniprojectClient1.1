@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -9,10 +10,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static java.lang.Thread.sleep;
 
-public class Controller {
+public class Controller implements Initializable {
 
 
 
@@ -31,21 +34,31 @@ public class Controller {
     public AnchorPane scene2;
     public AnchorPane scene3;
 
-    public void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         scene1.setVisible(true);
         scene2.setVisible(false);
         scene3.setVisible(false);
+
+        Socket socket = null;
+        try {
+        socket = new Socket("localhost", 8000);
+        toServer = new DataOutputStream(socket.getOutputStream());
+        fromServer = new DataInputStream(socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
             // read thread
             new Thread(() -> {
                 // LOBBY LOOP - >
                 try {
-                Socket socket = new Socket("localhost", 8000);
-                toServer = new DataOutputStream(socket.getOutputStream());
-                fromServer = new DataInputStream(socket.getInputStream());
+
                 while (true) {
                         // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
-                        chatBox.appendText(readMessage());
-                        if (readMessage().equalsIgnoreCase("STARTTHEGAME")) {
+                        String message = fromServer.readUTF();
+                        chatBox.appendText(message);
+                        if (message.equalsIgnoreCase("STARTTHEGAME")) {
                             scene2.setVisible(false);
                             scene3.setVisible(true);
                             break;
@@ -53,7 +66,8 @@ public class Controller {
                     }
 
                 while (true) {
-                        quizBox.appendText(readMessage());
+                        String message = fromServer.readUTF();
+                        quizBox.appendText(message);
                         }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -94,7 +108,8 @@ public class Controller {
     }
 
     public String readMessage() throws IOException {
-        return fromServer.readUTF();
+        String message = fromServer.readUTF();
+        return message;
     }
 
     public void startGame(ActionEvent actionEvent) throws IOException {
@@ -117,4 +132,7 @@ public class Controller {
     public void answerQFour(ActionEvent actionEvent) throws IOException {
         sendInt(4);
     }
+
+
+
 }
