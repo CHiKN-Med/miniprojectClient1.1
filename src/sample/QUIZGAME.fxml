@@ -49,18 +49,33 @@
                   <Font size="14.0" />
                </font></Button>
          </children></AnchorPane>
-      <AnchorPane fx:id="scene3" prefHeight="600.0" prefWidth="800.0">
+      <AnchorPane fx:id="scene3" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane prefHeight="600.0" prefWidth="800.0">
+            <Pane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <TextField fx:id="quizAnswerOptions" editable="false" layoutX="242.0" layoutY="328.0" prefHeight="156.0" prefWidth="358.0" />
-                  <Button fx:id="answerButtonOne" layoutX="201.0" layoutY="335.0" mnemonicParsing="false" onAction="#answerQOne" prefHeight="20.0" prefWidth="30.0" text="1" />
-                  <Button fx:id="answerButtonTwo" layoutX="201.0" layoutY="375.0" mnemonicParsing="false" onAction="#answerQTwo" prefHeight="20.0" prefWidth="30.0" text="2" />
-                  <Button fx:id="answerButtonThree" layoutX="201.0" layoutY="418.0" mnemonicParsing="false" onAction="#answerQThree" prefHeight="20.0" prefWidth="30.0" text="3" />
-                  <Button fx:id="answerButtonFour" layoutX="201.0" layoutY="459.0" mnemonicParsing="false" onAction="#answerQFour" prefHeight="20.0" prefWidth="30.0" text="4" />
+                  <Button fx:id="answerButtonOne" layoutX="201.0" layoutY="335.0" mnemonicParsing="false" onAction="#answerQOne" prefHeight="20.0" prefWidth="30.0" text="1">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="answerButtonTwo" layoutX="201.0" layoutY="375.0" mnemonicParsing="false" onAction="#answerQTwo" prefHeight="20.0" prefWidth="30.0" text="2">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="answerButtonThree" layoutX="201.0" layoutY="418.0" mnemonicParsing="false" onAction="#answerQThree" prefHeight="20.0" prefWidth="30.0" text="3">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Button>
+                  <Button fx:id="answerButtonFour" layoutX="201.0" layoutY="459.0" mnemonicParsing="false" onAction="#answerQFour" prefHeight="20.0" prefWidth="30.0" text="4">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font></Button>
                   <TextArea fx:id="quizBox" editable="false" layoutX="200.0" layoutY="119.0" prefHeight="181.0" prefWidth="400.0" wrapText="true">
                      <font>
                         <Font name="Javanese Text" size="24.0" />
+
+
+
+
                      </font>
                   </TextArea>
                   <Label layoutX="325.0" layoutY="65.0" text="Quiz started!">
@@ -76,6 +91,57 @@
                   <TextArea fx:id="correctAnswer" editable="false" layoutX="378.0" layoutY="499.0" prefHeight="20.0" prefWidth="60.0" wrapText="true">
                      <font>
                         <Font name="Arial" size="12.0" />
+                     </font>
+                  </TextArea>
+                  <TextArea fx:id="quizAnswerOptions" editable="false" layoutX="238.0" layoutY="330.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="360.0" wrapText="true">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="scene4" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text layoutX="75.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waiting for all users to complete">
+                     <font>
+                        <Font name="Javanese Text" size="48.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="379.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text=". . .">
+                     <font>
+                        <Font name="Javanese Text" size="48.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="scene5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="366.0" layoutY="169.0" prefHeight="610.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text layoutX="329.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WINNER">
+                     <font>
+                        <Font name="Arial" size="36.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="winnerNameBox" editable="false" layoutX="259.0" layoutY="117.0" prefHeight="0.0" prefWidth="285.0">
+                     <font>
+                        <Font name="Javanese Text" size="24.0" />
+                     </font>
+                  </TextArea>
+                  <Text layoutX="316.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCOREBOARD">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="scoreBoardBox" editable="false" layoutX="259.0" layoutY="291.0" prefHeight="277.0" prefWidth="285.0">
+                     <font>
+                        <Font name="Javanese Text" size="24.0" />
                      </font>
                   </TextArea>
                </children>
