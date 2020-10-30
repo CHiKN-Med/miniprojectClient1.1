@@ -47,6 +47,9 @@ public class Controller implements Initializable {
     public AnchorPane scene4;
     public AnchorPane scene5;
 
+    public String ip = "192.168.137.207";
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         scene1.setVisible(true);
@@ -57,7 +60,7 @@ public class Controller implements Initializable {
 
         Socket socket = null;
         try {
-        socket = new Socket("localhost", 8000);
+        socket = new Socket(ip, 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
         fromServer = new DataInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -114,8 +117,11 @@ public class Controller implements Initializable {
                 }
 
                 // SCORE LOOP
-               winnerNameBox.appendText(fromServer.readUTF());
-                scoreBoardBox.appendText(fromServer.readUTF());
+                String messageFromServer  = fromServer.readUTF();
+               winnerNameBox.appendText(messageFromServer);
+                String messageFromServer2  = fromServer.readUTF();
+               scoreBoardBox.appendText(messageFromServer2);
+
                     // System.out.println("showScore");
 
 
