@@ -5,11 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="KUN EN XML">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/QUIZGAME.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/QUIZGAME.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="CLIENT TIL QUIZ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603979337198</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="CLIENT TIL QUIZ">
+      <created>1604046451789</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604046451789</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +232,8 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="SKABALON TIL CLIENT" />
     <MESSAGE value="KUN EN XML" />
-    <option name="LAST_COMMIT_MESSAGE" value="KUN EN XML" />
+    <MESSAGE value="CLIENT TIL QUIZ" />
+    <option name="LAST_COMMIT_MESSAGE" value="CLIENT TIL QUIZ" />
   </component>
   <component name="WindowStateProjectService">
     <state x="708" y="120" key="#Inspections" timestamp="1603977917289">
