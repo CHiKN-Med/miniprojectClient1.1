@@ -64,13 +64,22 @@ public class Controller implements Initializable {
                             scene3.setVisible(true);
                             break;
                         }
+
                     }
 
+                // QUIZ LOOP -->
                 while (true) {
+                        // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
                         String message = fromServer.readUTF();
+                        // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
+                        quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
+                        // APPEND QUESTION TO QUIZ BOX
                         quizBox.appendText(message);
+                        // READ
                         message = fromServer.readUTF();
                         quizAnswerOptions.appendText(message);
+                        message = fromServer.readUTF();
+                        correctAnswer.appendText(message);
                         }
                 } catch (IOException e) {
                     e.printStackTrace();
