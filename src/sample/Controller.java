@@ -73,6 +73,9 @@ public class Controller implements Initializable {
                         String message = fromServer.readUTF();
                         // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
                         quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
+                        if(message.equalsIgnoreCase("STOPTHEGAME")){
+                            break;
+                        }
                         // APPEND QUESTION TO QUIZ BOX
                         quizBox.appendText(message);
                         // READ
@@ -81,6 +84,18 @@ public class Controller implements Initializable {
                         message = fromServer.readUTF();
                         correctAnswer.appendText(message);
                         }
+
+                while(true){
+                    String message = fromServer.readUTF();
+                    if(message.equalsIgnoreCase("SHOWTHESCORE"))
+                        break;
+                }
+
+                while(true){
+                    System.out.println("showScore");
+                }
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
