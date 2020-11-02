@@ -1,11 +1,19 @@
 package sample;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -13,6 +21,23 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Controller implements Initializable {
 
@@ -38,6 +63,21 @@ public class Controller implements Initializable {
     public TextField usernameInput = new TextField();
     public TextField chatMessage = new TextField();
     public TextArea quizBox;
+    private static final Integer STARTTIME = 15;
+    public Timeline timeline;
+    public Label setTime = new Label();
+    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
+    //setTime.textProperty().bind(timeSeconds.asString());
+
+
+
+
+
+
+
+
+
+
 
     public AnchorPane scene1;
     public AnchorPane scene2;
@@ -56,6 +96,8 @@ public class Controller implements Initializable {
         scene3.setVisible(false);
         scene4.setVisible(false);
         scene5.setVisible(false);
+
+
 
         Socket socket = null;
 
@@ -81,6 +123,7 @@ public class Controller implements Initializable {
                             sendMessage("");}
                             scene2.setVisible(false);
                             scene3.setVisible(true);
+                            setTimer();
                             break;
                         }
                     }
@@ -128,6 +171,22 @@ public class Controller implements Initializable {
             }).start();
     }
 
+    private void setTimer() {
+
+
+        if (timeline != null) {
+            timeline.stop();
+        }
+        timeSeconds.set(STARTTIME);
+        timeline = new Timeline();
+        timeline.getKeyFrames().add(
+                new KeyFrame(Duration.seconds(STARTTIME+1),
+                        new KeyValue(timeSeconds, 0)));
+        timeline.playFromStart();
+    }
+
+
+
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
         // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
         sendMessage(usernameInput.getText());
@@ -156,9 +215,7 @@ public class Controller implements Initializable {
         toServer.flush();
     }
 
-    public int readInt() throws IOException {
-        return fromServer.readInt();
-    }
+
 
 
 
@@ -169,40 +226,21 @@ public class Controller implements Initializable {
     }
 
     public void answerQOne(ActionEvent actionEvent) throws IOException {
-        sendInt(1);/*
-        answerButtonOne.setDisable(true);
-        answerButtonTwo.setDisable(true);
-        answerButtonThree.setDisable(true);
-        answerButtonFour.setDisable(true);
-        */
+        sendInt(1);
+
     }
 
     public void answerQTwo(ActionEvent actionEvent) throws IOException {
-        sendInt(2);/*
-        answerButtonOne.setDisable(true);
-        answerButtonTwo.setDisable(true);
-        answerButtonThree.setDisable(true);
-        answerButtonFour.setDisable(true);
-        */
+        sendInt(2);
     }
 
     public void answerQThree(ActionEvent actionEvent) throws IOException {
-        sendInt(3);/*
-        answerButtonOne.setDisable(true);
-        answerButtonTwo.setDisable(true);
-        answerButtonThree.setDisable(true);
-        answerButtonFour.setDisable(true);
-        */
+        sendInt(3);
     }
 
     public void answerQFour(ActionEvent actionEvent) throws IOException {
         sendInt(4);
-        /*
-        answerButtonOne.setDisable(true);
-        answerButtonTwo.setDisable(true);
-        answerButtonThree.setDisable(true);
-        answerButtonFour.setDisable(true);
-        */
+
     }
 
 }
