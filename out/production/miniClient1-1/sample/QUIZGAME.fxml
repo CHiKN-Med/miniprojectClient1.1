@@ -49,7 +49,7 @@
                   <Font size="14.0" />
                </font></Button>
          </children></AnchorPane>
-      <AnchorPane fx:id="scene3" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="scene3" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -98,6 +98,7 @@
                         <Font name="Arial" size="14.0" />
                      </font>
                   </TextArea>
+                  <Button fx:id="noQuestionButton" layoutX="605.0" layoutY="14.0" mnemonicParsing="false" onAction="#noQuestionButton" prefHeight="27.0" prefWidth="191.0" text="IF NO QUESTION CLICK HERE " />
                </children>
             </Pane>
          </children>
@@ -120,7 +121,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="scene5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="scene5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutX="366.0" layoutY="169.0" prefHeight="610.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>

@@ -14,8 +14,6 @@ import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static java.lang.Thread.sleep;
-
 public class Controller implements Initializable {
 
 
@@ -47,8 +45,9 @@ public class Controller implements Initializable {
     public AnchorPane scene4;
     public AnchorPane scene5;
 
-    public String ip = "192.168.137.207";
 
+    public String ip = "192.168.1.146";
+    public boolean iPressed = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,8 +58,9 @@ public class Controller implements Initializable {
         scene5.setVisible(false);
 
         Socket socket = null;
+
         try {
-        socket = new Socket(ip, 8000);
+        socket = new Socket("localhost", 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
         fromServer = new DataInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -77,28 +77,27 @@ public class Controller implements Initializable {
                         String message = fromServer.readUTF();
                         chatBox.appendText(message);
                         if (message.equalsIgnoreCase("STARTTHEGAME")) {
+                            if(!iPressed){
+                            sendMessage("");}
                             scene2.setVisible(false);
                             scene3.setVisible(true);
                             break;
                         }
-
                     }
 
                 // QUIZ LOOP -->
                 while (true) {
                         // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
                         String message = fromServer.readUTF();
-                        answerButtonOne.setDisable(false);
-                        answerButtonTwo.setDisable(false);
-                        answerButtonThree.setDisable(false);
-                        answerButtonFour.setDisable(false);
                         // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
                         quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
+
                         if(message.equalsIgnoreCase("STOPTHEGAME")){
                             scene3.setVisible(false);
                             scene4.setVisible(true);
                             break;
                         }
+
                         // APPEND QUESTION TO QUIZ BOX
                         quizBox.appendText(message);
                         // READ
@@ -107,6 +106,7 @@ public class Controller implements Initializable {
                         message = fromServer.readUTF();
                         correctAnswer.appendText(message);
                         }
+
                 // WAITING LOOP
                 while(true){
                     String message = fromServer.readUTF();
@@ -116,15 +116,11 @@ public class Controller implements Initializable {
                         break;
                 }
 
-                // SCORE LOOP
+                // SCORE
                 String messageFromServer  = fromServer.readUTF();
                winnerNameBox.appendText(messageFromServer);
                 String messageFromServer2  = fromServer.readUTF();
                scoreBoardBox.appendText(messageFromServer2);
-
-                    // System.out.println("showScore");
-
-
 
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -169,6 +165,7 @@ public class Controller implements Initializable {
     public void startGame(ActionEvent actionEvent) throws IOException {
         // IF A USER CLICKS THE START GAME BUTTON A MESSAGE GETS SEND THAT TELLS THE SERVER TO START THE GAME
         sendMessage("STARTTHEGAME");
+        iPressed=true;
     }
 
     public void answerQOne(ActionEvent actionEvent) throws IOException {
@@ -207,7 +204,5 @@ public class Controller implements Initializable {
         answerButtonFour.setDisable(true);
         */
     }
-
-
 
 }
