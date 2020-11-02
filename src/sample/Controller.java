@@ -52,6 +52,9 @@ public class Controller implements Initializable {
     public Button startGame;
     public TextArea winnerNameBox;
     public TextArea scoreBoardBox;
+    public TextField EnterIPtxt;
+    public Button IPEnter;
+
 
     // socket attributes - >
     DataOutputStream toServer = null;
@@ -78,7 +81,7 @@ public class Controller implements Initializable {
 
 
 
-
+    public AnchorPane scene0;
     public AnchorPane scene1;
     public AnchorPane scene2;
     public AnchorPane scene3;
@@ -86,23 +89,26 @@ public class Controller implements Initializable {
     public AnchorPane scene5;
 
 
-    public String ip = "192.168.1.146";
+    public String ip = null;
     public boolean iPressed = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        scene1.setVisible(true);
+        scene0.setVisible(true);
+        scene1.setVisible(false);
         scene2.setVisible(false);
         scene3.setVisible(false);
         scene4.setVisible(false);
         scene5.setVisible(false);
 
-
+// While loop her.
 
         Socket socket = null;
-
+while(ip==null) {
+    ip = EnterIPtxt.getText();
+}
         try {
-        socket = new Socket("localhost", 8000);
+        socket = new Socket(ip, 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
         fromServer = new DataInputStream(socket.getInputStream());
         } catch (IOException e) {
@@ -185,7 +191,12 @@ public class Controller implements Initializable {
         timeline.playFromStart();
     }
 
-
+    public void SendIP(ActionEvent actionEvent) throws IOException {
+        // Acquiring IP from user before creating a user.
+        ip = EnterIPtxt.getText();
+        scene0.setVisible(false);
+        scene1.setVisible(true);
+    }
 
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
         // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
