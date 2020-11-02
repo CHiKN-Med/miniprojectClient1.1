@@ -73,14 +73,6 @@ public class Controller implements Initializable {
     //setTime.textProperty().bind(timeSeconds.asString());
 
 
-
-
-
-
-
-
-
-
     public AnchorPane scene0;
     public AnchorPane scene1;
     public AnchorPane scene2;
@@ -91,6 +83,7 @@ public class Controller implements Initializable {
 
     public String ip = null;
     public boolean iPressed = false;
+    public boolean joinServer = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -101,13 +94,16 @@ public class Controller implements Initializable {
         scene4.setVisible(false);
         scene5.setVisible(false);
 
-// While loop her.
 
+// While loop her.
+        new Thread(() -> {
+        while(!joinServer) {
+        System.out.println("waiting for IP");
+        }
         Socket socket = null;
-while(ip==null) {
-    ip = EnterIPtxt.getText();
-}
+
         try {
+            try {
         socket = new Socket(ip, 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
         fromServer = new DataInputStream(socket.getInputStream());
@@ -116,9 +112,7 @@ while(ip==null) {
         }
 
             // read thread
-            new Thread(() -> {
-                // LOBBY LOOP - >
-                try {
+
 
                 while (true) {
                         // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
@@ -194,8 +188,10 @@ while(ip==null) {
     public void SendIP(ActionEvent actionEvent) throws IOException {
         // Acquiring IP from user before creating a user.
         ip = EnterIPtxt.getText();
+        System.out.println(ip);
         scene0.setVisible(false);
         scene1.setVisible(true);
+        joinServer=true;
     }
 
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
