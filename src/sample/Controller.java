@@ -72,7 +72,6 @@ public class Controller implements Initializable {
     public Timeline timeline;
     public Label setTime = new Label();
     private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
-    //setTime.textProperty().bind(timeSeconds.asString());
 
 
     public AnchorPane scene0;
@@ -182,6 +181,8 @@ public class Controller implements Initializable {
 
 
     private void setTimer() {
+
+        setTime.textProperty().bind(timeSeconds.asString());
 
 
         if (timeline != null) {
