@@ -127,7 +127,7 @@ public class Controller implements Initializable {
                         scene2.setVisible(false);
                         scene3.setVisible(true);
                         setTimer();
-                       handle();
+                        handle();
                         break;
                     }
                 }
@@ -262,13 +262,39 @@ public class Controller implements Initializable {
             sendInt(1);
         } else if (event.getCode() == KeyCode.DIGIT2) {
             sendInt(2);
-        } else if  (event.getCode() == KeyCode.DIGIT3) {
+        } else if (event.getCode() == KeyCode.DIGIT3) {
             sendInt(3);
-        }  else if (event.getCode() == KeyCode.DIGIT4) {
-                        sendInt(4);
-                    }
-                }
-            }
+        } else if (event.getCode() == KeyCode.DIGIT4) {
+            sendInt(4);
+        }
+    }
+
+    public void SendIPBtn(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            ip = EnterIPtxt.getText();
+            System.out.println(ip);
+            scene0.setVisible(false);
+            scene1.setVisible(true);
+            joinServer = true;
+        }
+    }
+
+    public void joinTheServerBtn(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            sendMessage(usernameInput.getText());
+            scene1.setVisible(false);
+            scene2.setVisible(true);
+        }
+
+    }
+
+    public void sendMessageButtonEnter(KeyEvent keyEvent) {
+        if (keyEvent.getCode() == KeyCode.ENTER) {
+            sendMessage(chatMessage.getText());
+            chatMessage.clear();
+        }
+    }
+}
 
 
 
