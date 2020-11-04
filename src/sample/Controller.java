@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
@@ -73,14 +75,6 @@ public class Controller implements Initializable {
     //setTime.textProperty().bind(timeSeconds.asString());
 
 
-
-
-
-
-
-
-
-
     public AnchorPane scene0;
     public AnchorPane scene1;
     public AnchorPane scene2;
@@ -102,84 +96,90 @@ public class Controller implements Initializable {
         scene4.setVisible(false);
         scene5.setVisible(false);
 
+
 // While loop her.
-        // read thread
-new Thread(() -> {
-    // LOBBY LOOP - >
-    try {
+        new Thread(() -> {
+            while (!joinServer) {
+                System.out.println("waiting for IP");
+            }
+            Socket socket = null;
 
-
-                Socket socket = null;
-        while(!joinServer) {
-            System.out.println("Not connected yet");
-        }
-        try {
-        socket = new Socket(ip, 8000);
-        toServer = new DataOutputStream(socket.getOutputStream());
-        fromServer = new DataInputStream(socket.getInputStream());
-        scene0.setVisible(false);
-        scene1.setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-                while (true) {
-                        // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
-                        String message = fromServer.readUTF();
-                        chatBox.appendText(message);
-                        if (message.equalsIgnoreCase("STARTTHEGAME")) {
-                            if(!iPressed){
-                            sendMessage("");}
-                            scene2.setVisible(false);
-                            scene3.setVisible(true);
-                            setTimer();
-                            break;
-                        }
-                    }
-
-                // QUIZ LOOP -->
-                while (true) {
-                        // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
-                        String message = fromServer.readUTF();
-                        // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
-                        quizBox.clear(); quizAnswerOptions.clear(); correctAnswer.clear();
-
-                        if(message.equalsIgnoreCase("STOPTHEGAME")){
-                            scene3.setVisible(false);
-                            scene4.setVisible(true);
-                            break;
-                        }
-
-                        // APPEND QUESTION TO QUIZ BOX
-                        quizBox.appendText(message);
-                        // READ
-                        message = fromServer.readUTF();
-                        quizAnswerOptions.appendText(message);
-                        message = fromServer.readUTF();
-                        correctAnswer.appendText(message);
-                        }
-
-                // WAITING LOOP
-                while(true){
-                    String message = fromServer.readUTF();
-                    if(message.equalsIgnoreCase("SHOWTHESCORE"))
-                        scene4.setVisible(false);
-                        scene5.setVisible(true);
-                        break;
-                }
-
-                // SCORE
-                String messageFromServer  = fromServer.readUTF();
-               winnerNameBox.appendText(messageFromServer);
-                String messageFromServer2  = fromServer.readUTF();
-               scoreBoardBox.appendText(messageFromServer2);
-
+            try {
+                try {
+                    socket = new Socket(ip, 8000);
+                    toServer = new DataOutputStream(socket.getOutputStream());
+                    fromServer = new DataInputStream(socket.getInputStream());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }).start();
+
+                // read thread
+
+
+                while (true) {
+                    // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
+                    String message = fromServer.readUTF();
+                    chatBox.appendText(message);
+                    if (message.equalsIgnoreCase("STARTTHEGAME")) {
+                        if (!iPressed) {
+                            sendMessage("");
+                        }
+                        scene2.setVisible(false);
+                        scene3.setVisible(true);
+                        setTimer();
+                       handle();
+                        break;
+                    }
+                }
+
+                // QUIZ LOOP -->
+                while (true) {
+                    // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
+                    String message = fromServer.readUTF();
+                    // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
+                    quizBox.clear();
+                    quizAnswerOptions.clear();
+                    correctAnswer.clear();
+
+                    if (message.equalsIgnoreCase("STOPTHEGAME")) {
+                        scene3.setVisible(false);
+                        scene4.setVisible(true);
+                        break;
+                    }
+
+                    // APPEND QUESTION TO QUIZ BOX
+                    quizBox.appendText(message);
+                    // READ
+                    message = fromServer.readUTF();
+                    quizAnswerOptions.appendText(message);
+                    message = fromServer.readUTF();
+                    correctAnswer.appendText(message);
+                }
+
+                // WAITING LOOP
+                while (true) {
+                    String message = fromServer.readUTF();
+                    if (message.equalsIgnoreCase("SHOWTHESCORE"))
+                        scene4.setVisible(false);
+                    scene5.setVisible(true);
+                    break;
+                }
+
+                // SCORE
+                String messageFromServer = fromServer.readUTF();
+                winnerNameBox.appendText(messageFromServer);
+                String messageFromServer2 = fromServer.readUTF();
+                scoreBoardBox.appendText(messageFromServer2);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
+
+    private void handle() {
+    }
+
 
     private void setTimer() {
 
@@ -190,7 +190,7 @@ new Thread(() -> {
         timeSeconds.set(STARTTIME);
         timeline = new Timeline();
         timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(STARTTIME+1),
+                new KeyFrame(Duration.seconds(STARTTIME + 1),
                         new KeyValue(timeSeconds, 0)));
         timeline.playFromStart();
     }
@@ -198,8 +198,10 @@ new Thread(() -> {
     public void SendIP(ActionEvent actionEvent) throws IOException {
         // Acquiring IP from user before creating a user.
         ip = EnterIPtxt.getText();
-        joinServer=true;
-
+        System.out.println(ip);
+        scene0.setVisible(false);
+        scene1.setVisible(true);
+        joinServer = true;
     }
 
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
@@ -225,19 +227,16 @@ new Thread(() -> {
 
     }
 
-    public void sendInt(int answer) throws IOException{
+    public void sendInt(int answer) throws IOException {
         toServer.writeInt(answer);
         toServer.flush();
     }
 
 
-
-
-
     public void startGame(ActionEvent actionEvent) throws IOException {
         // IF A USER CLICKS THE START GAME BUTTON A MESSAGE GETS SEND THAT TELLS THE SERVER TO START THE GAME
         sendMessage("STARTTHEGAME");
-        iPressed=true;
+        iPressed = true;
     }
 
     public void answerQOne(ActionEvent actionEvent) throws IOException {
@@ -258,4 +257,18 @@ new Thread(() -> {
 
     }
 
-}
+    public void keyboardClick(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.DIGIT1) {
+            sendInt(1);
+        } else if (event.getCode() == KeyCode.DIGIT2) {
+            sendInt(2);
+        } else if  (event.getCode() == KeyCode.DIGIT3) {
+            sendInt(3);
+        }  else if (event.getCode() == KeyCode.DIGIT4) {
+                        sendInt(4);
+                    }
+                }
+            }
+
+
+
