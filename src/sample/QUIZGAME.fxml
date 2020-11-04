@@ -142,7 +142,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="scene5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="scene5" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane layoutX="366.0" layoutY="169.0" prefHeight="610.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -166,6 +166,7 @@
                         <Font name="Javanese Text" size="24.0" />
                      </font>
                   </TextArea>
+                  <Button layoutX="652.0" layoutY="543.0" mnemonicParsing="false" onAction="#ExitApp" onMouseClicked="#ExitApp" text="Exit Application" />
                </children>
             </Pane>
          </children>

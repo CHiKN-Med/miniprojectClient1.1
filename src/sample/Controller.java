@@ -294,7 +294,12 @@ public class Controller implements Initializable {
             chatMessage.clear();
         }
     }
+
+    public void ExitApp(ActionEvent actionEvent) {
+        System.exit(0);
+    }
 }
+
 
 
 
