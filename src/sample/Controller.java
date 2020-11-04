@@ -110,9 +110,9 @@ new Thread(() -> {
 
 
                 Socket socket = null;
-            while(!joinServer) {
-                System.out.println("Not connected yet");
-            }
+        while(!joinServer) {
+            System.out.println("Not connected yet");
+        }
         try {
         socket = new Socket(ip, 8000);
         toServer = new DataOutputStream(socket.getOutputStream());
