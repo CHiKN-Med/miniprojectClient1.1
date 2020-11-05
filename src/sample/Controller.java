@@ -56,6 +56,7 @@ public class Controller implements Initializable {
     public TextArea scoreBoardBox;
     public TextField EnterIPtxt;
     public Button IPEnter;
+    public Button localHostIp;
 
 
     // socket attributes - >
@@ -297,6 +298,16 @@ public class Controller implements Initializable {
 
     public void ExitApp(ActionEvent actionEvent) {
         System.exit(0);
+    }
+
+    public void SendLocalHostIp(ActionEvent actionEvent) {
+
+        ip = "localhost";
+        System.out.println("You connected through: " + ip);
+        scene0.setVisible(false);
+        scene1.setVisible(true);
+        joinServer = true;
+
     }
 }
 
