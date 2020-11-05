@@ -100,7 +100,7 @@ public class Controller implements Initializable {
 
 // While loop her.
         new Thread(() -> {
-            while (!joinServer) {
+            while (!joinServer && ip != "localhost") {
                 System.out.println("waiting for IP");
             }
             Socket socket = null;
@@ -303,6 +303,7 @@ public class Controller implements Initializable {
     public void SendLocalHostIp(ActionEvent actionEvent) {
 
         ip = "localhost";
+
         System.out.println("You connected through: " + ip);
         scene0.setVisible(false);
         scene1.setVisible(true);
