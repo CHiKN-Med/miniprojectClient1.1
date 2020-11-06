@@ -56,7 +56,6 @@ public class Controller implements Initializable {
     public TextArea scoreBoardBox;
     public TextField EnterIPtxt;
     public Button IPEnter;
-    public Button localHostIp;
 
 
     // socket attributes - >
@@ -196,8 +195,8 @@ public class Controller implements Initializable {
         timeline.playFromStart();
     }
 
+    // ACQUIRING IP FROM USER BEFORE CREATING A USER
     public void SendIP(ActionEvent actionEvent) throws IOException {
-        // Acquiring IP from user before creating a user.
         ip = EnterIPtxt.getText();
         System.out.println(ip);
         scene0.setVisible(false);
@@ -205,19 +204,20 @@ public class Controller implements Initializable {
         joinServer = true;
     }
 
+    // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE() FUNCTION
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
-        // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
         sendMessage(usernameInput.getText());
         scene1.setVisible(false);
         scene2.setVisible(true);
     }
 
-
+    //ON ACTION METHOD FOR "SEND" BUTTON IN THE LOBBY CHAT
     public void sendMessageButton(ActionEvent actionEvent) {
         sendMessage(chatMessage.getText());
         chatMessage.clear();
     }
 
+    //METHOD WHICH SENDS A STRING INPUT TO THE SERVER
     public void sendMessage(String message) {
         try {
             toServer.writeUTF(message);
@@ -228,18 +228,19 @@ public class Controller implements Initializable {
 
     }
 
+    //METHOD WHICH SENDS AN INT INPUT TO THE SERVER
     public void sendInt(int answer) throws IOException {
         toServer.writeInt(answer);
         toServer.flush();
     }
 
-
+    // IF A USER CLICKS THE "START GAME" BUTTON A MESSAGE IS SEND WHICH TELLS THE SERVER TO START THE GAME
     public void startGame(ActionEvent actionEvent) throws IOException {
-        // IF A USER CLICKS THE START GAME BUTTON A MESSAGE GETS SEND THAT TELLS THE SERVER TO START THE GAME
         sendMessage("STARTTHEGAME");
         iPressed = true;
     }
 
+    //METHODS FOR THE QUIZ ANSWER OPTIONS, WHICH SENDS THE CHOSEN ANSWERS INT NR TO THE SERVER
     public void answerQOne(ActionEvent actionEvent) throws IOException {
         sendInt(1);
 
@@ -258,6 +259,7 @@ public class Controller implements Initializable {
 
     }
 
+    //ENABLES the KEYBOARD KEYS 1-4 TO BE USED TO ANSWER THE QUESTION
     public void keyboardClick(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.DIGIT1) {
             sendInt(1);
@@ -270,6 +272,7 @@ public class Controller implements Initializable {
         }
     }
 
+  //ON ACTION METHOD FOR THE "SEND IP" BUTTON, WHICH CHANGES THE SCENE AND JOINS THE SERVER WITH THE MATCHING IP
     public void SendIPBtn(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             ip = EnterIPtxt.getText();
@@ -280,6 +283,18 @@ public class Controller implements Initializable {
         }
     }
 
+    // ON ACTION METHOD FOR "LOCALHOST" BUTTON, WHICH SETS THE IP TO "LOCALHOST"
+    public void SendLocalHostIp(ActionEvent actionEvent) {
+
+        ip = "localhost";
+
+        System.out.println("You connected through: " + ip);
+        scene0.setVisible(false);
+        scene1.setVisible(true);
+        joinServer = true;
+    }
+
+//ON ACTION METHOD OF "JOIN" BUTTON, WHICH CHANGES THE SCENE AND SAVES THE USERNAME
     public void joinTheServerBtn(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             sendMessage(usernameInput.getText());
@@ -289,6 +304,7 @@ public class Controller implements Initializable {
 
     }
 
+    //ENABLES THE ENTER KEYBOARD KEY TO BE USED TO SEND WRITTEN USER INPUTS
     public void sendMessageButtonEnter(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             sendMessage(chatMessage.getText());
@@ -296,19 +312,9 @@ public class Controller implements Initializable {
         }
     }
 
+    //ON ACTION METHOD FOR THE "EXIT" BUTTON
     public void ExitApp(ActionEvent actionEvent) {
         System.exit(0);
-    }
-
-    public void SendLocalHostIp(ActionEvent actionEvent) {
-
-        ip = "localhost";
-
-        System.out.println("You connected through: " + ip);
-        scene0.setVisible(false);
-        scene1.setVisible(true);
-        joinServer = true;
-
     }
 }
 
