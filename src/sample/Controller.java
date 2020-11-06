@@ -1,21 +1,13 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -23,23 +15,6 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.application.Application;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Controller implements Initializable {
 
@@ -56,7 +31,6 @@ public class Controller implements Initializable {
     public TextArea scoreBoardBox;
     public TextField EnterIPtxt;
     public Button IPEnter;
-    public Button localHostIp;
 
 
     // socket attributes - >
@@ -69,12 +43,6 @@ public class Controller implements Initializable {
     public TextField usernameInput = new TextField();
     public TextField chatMessage = new TextField();
     public TextArea quizBox;
-    private static final Integer STARTTIME = 15;
-    public Timeline timeline;
-    public Label setTime = new Label();
-    private IntegerProperty timeSeconds = new SimpleIntegerProperty(STARTTIME);
-    //setTime.textProperty().bind(timeSeconds.asString());
-
 
     public AnchorPane scene0;
     public AnchorPane scene1;
@@ -98,11 +66,13 @@ public class Controller implements Initializable {
         scene5.setVisible(false);
 
 
-// While loop her.
+        // While loop her.
         new Thread(() -> {
-            while (!joinServer && ip != "localhost") {
+            while (!joinServer && ip != "localhost")
+            {
                 System.out.println("waiting for IP");
             }
+
             Socket socket = null;
 
             try {
@@ -127,14 +97,13 @@ public class Controller implements Initializable {
                         }
                         scene2.setVisible(false);
                         scene3.setVisible(true);
-                        setTimer();
-                        handle();
                         break;
                     }
                 }
 
                 // QUIZ LOOP -->
                 while (true) {
+
                     // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
                     String message = fromServer.readUTF();
                     // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
@@ -153,24 +122,24 @@ public class Controller implements Initializable {
                     // READ
                     message = fromServer.readUTF();
                     quizAnswerOptions.appendText(message);
+
                     message = fromServer.readUTF();
                     correctAnswer.appendText(message);
                 }
 
-                // WAITING LOOP
-                while (true) {
-                    String message = fromServer.readUTF();
-                    if (message.equalsIgnoreCase("SHOWTHESCORE"))
-                        scene4.setVisible(false);
-                    scene5.setVisible(true);
-                    break;
-                }
+                // WAITING
+                String message = fromServer.readUTF();
+                if (message.equalsIgnoreCase("SHOWTHESCORE")){
+                    scene4.setVisible(false);
+                    scene5.setVisible(true);}
 
-                // SCORE
+                // SCOREBOARD
                 String messageFromServer = fromServer.readUTF();
                 winnerNameBox.appendText(messageFromServer);
                 String messageFromServer2 = fromServer.readUTF();
                 scoreBoardBox.appendText(messageFromServer2);
+
+
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -178,26 +147,10 @@ public class Controller implements Initializable {
         }).start();
     }
 
-    private void handle() {
-    }
 
 
-    private void setTimer() {
-
-
-        if (timeline != null) {
-            timeline.stop();
-        }
-        timeSeconds.set(STARTTIME);
-        timeline = new Timeline();
-        timeline.getKeyFrames().add(
-                new KeyFrame(Duration.seconds(STARTTIME + 1),
-                        new KeyValue(timeSeconds, 0)));
-        timeline.playFromStart();
-    }
-
+    // ACQUIRING IP FROM USER BEFORE CREATING A USER
     public void SendIP(ActionEvent actionEvent) throws IOException {
-        // Acquiring IP from user before creating a user.
         ip = EnterIPtxt.getText();
         System.out.println(ip);
         scene0.setVisible(false);
@@ -205,19 +158,20 @@ public class Controller implements Initializable {
         joinServer = true;
     }
 
+    // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE() FUNCTION
     public void joinTheServer(ActionEvent actionEvent) throws IOException {
-        // SENDING THE USERNAME TO THE SERVER USING THE SENDMESSAGE FUNCTION
         sendMessage(usernameInput.getText());
         scene1.setVisible(false);
         scene2.setVisible(true);
     }
 
-
+    //ON ACTION METHOD FOR "SEND" BUTTON IN THE LOBBY CHAT
     public void sendMessageButton(ActionEvent actionEvent) {
         sendMessage(chatMessage.getText());
         chatMessage.clear();
     }
 
+    //METHOD WHICH SENDS A STRING INPUT TO THE SERVER
     public void sendMessage(String message) {
         try {
             toServer.writeUTF(message);
@@ -228,21 +182,21 @@ public class Controller implements Initializable {
 
     }
 
+    //METHOD WHICH SENDS AN INT INPUT TO THE SERVER
     public void sendInt(int answer) throws IOException {
         toServer.writeInt(answer);
         toServer.flush();
     }
 
-
+    // IF A USER CLICKS THE "START GAME" BUTTON A MESSAGE IS SEND WHICH TELLS THE SERVER TO START THE GAME
     public void startGame(ActionEvent actionEvent) throws IOException {
-        // IF A USER CLICKS THE START GAME BUTTON A MESSAGE GETS SEND THAT TELLS THE SERVER TO START THE GAME
         sendMessage("STARTTHEGAME");
         iPressed = true;
     }
 
+    //METHODS FOR THE QUIZ ANSWER OPTIONS, WHICH SENDS THE CHOSEN ANSWERS INT NR TO THE SERVER
     public void answerQOne(ActionEvent actionEvent) throws IOException {
         sendInt(1);
-
     }
 
     public void answerQTwo(ActionEvent actionEvent) throws IOException {
@@ -258,6 +212,7 @@ public class Controller implements Initializable {
 
     }
 
+    //ENABLES the KEYBOARD KEYS 1-4 TO BE USED TO ANSWER THE QUESTION
     public void keyboardClick(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.DIGIT1) {
             sendInt(1);
@@ -270,6 +225,7 @@ public class Controller implements Initializable {
         }
     }
 
+  //ON ACTION METHOD FOR THE "SEND IP" BUTTON, WHICH CHANGES THE SCENE AND JOINS THE SERVER WITH THE MATCHING IP
     public void SendIPBtn(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             ip = EnterIPtxt.getText();
@@ -280,6 +236,18 @@ public class Controller implements Initializable {
         }
     }
 
+    // ON ACTION METHOD FOR "LOCALHOST" BUTTON, WHICH SETS THE IP TO "LOCALHOST"
+    public void SendLocalHostIp(ActionEvent actionEvent) {
+
+        ip = "localhost";
+
+        System.out.println("You connected through: " + ip);
+        scene0.setVisible(false);
+        scene1.setVisible(true);
+        joinServer = true;
+    }
+
+//ON ACTION METHOD OF "JOIN" BUTTON, WHICH CHANGES THE SCENE AND SAVES THE USERNAME
     public void joinTheServerBtn(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             sendMessage(usernameInput.getText());
@@ -289,6 +257,7 @@ public class Controller implements Initializable {
 
     }
 
+    //ENABLES THE ENTER KEYBOARD KEY TO BE USED TO SEND WRITTEN USER INPUTS
     public void sendMessageButtonEnter(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             sendMessage(chatMessage.getText());
@@ -296,19 +265,9 @@ public class Controller implements Initializable {
         }
     }
 
+    //ON ACTION METHOD FOR THE "EXIT" BUTTON
     public void ExitApp(ActionEvent actionEvent) {
         System.exit(0);
-    }
-
-    public void SendLocalHostIp(ActionEvent actionEvent) {
-
-        ip = "localhost";
-
-        System.out.println("You connected through: " + ip);
-        scene0.setVisible(false);
-        scene1.setVisible(true);
-        joinServer = true;
-
     }
 }
 
