@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -18,7 +17,15 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    // ANCHOR PANES FOR SCENES:
+    public AnchorPane scene0;
+    public AnchorPane scene1;
+    public AnchorPane scene2;
+    public AnchorPane scene3;
+    public AnchorPane scene4;
+    public AnchorPane scene5;
 
+    // ATTRIBUTES FOR FXML ELEMENTS IN SCENES:
     public TextArea quizAnswerOptions;
     public TextArea correctAnswer;
     public Button answerButtonOne;
@@ -31,33 +38,26 @@ public class Controller implements Initializable {
     public TextArea scoreBoardBox;
     public TextField EnterIPtxt;
     public Button IPEnter;
-
-
-    // socket attributes - >
-    DataOutputStream toServer = null;
-    DataInputStream fromServer = null;
-
-    // JAVAFX ELEMENTS
-
     public TextArea chatBox = new TextArea();
     public TextField usernameInput = new TextField();
     public TextField chatMessage = new TextField();
     public TextArea quizBox;
 
-    public AnchorPane scene0;
-    public AnchorPane scene1;
-    public AnchorPane scene2;
-    public AnchorPane scene3;
-    public AnchorPane scene4;
-    public AnchorPane scene5;
+    // socket attributes:
+    private DataOutputStream toServer = null;
+    private DataInputStream fromServer = null;
+    private Socket socket = null;
+
+    // ATTRIBUTES:
+    private String ip = null;
+    private boolean iPressed = false;
+    private boolean joinServer = false;
 
 
-    public String ip = null;
-    public boolean iPressed = false;
-    public boolean joinServer = false;
-
+    // INITIALIZE METHOD IS RUN WHEN CLIENT OPENS:
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // SCENE 0 IS SET TO BE VISIBLE WHILE ALL OTHER SCENES ARE NOT
         scene0.setVisible(true);
         scene1.setVisible(false);
         scene2.setVisible(false);
@@ -65,16 +65,16 @@ public class Controller implements Initializable {
         scene4.setVisible(false);
         scene5.setVisible(false);
 
-
-        // While loop her.
+        // STARTING NEW THREAD IN ORDER TO READ MESSAGES FROM SERVER
         new Thread(() -> {
+
+            // WHILE LOOP WHICH BREAKS WHEN THE USER INPUTS IP OG PRESSES LOCALHOST-BUTTON
             while (!joinServer && ip != "localhost")
             {
                 System.out.println("waiting for IP");
             }
 
-            Socket socket = null;
-
+            // CLIENT CONNECTS TO SERVER VIA THE CHOSEN IP
             try {
                 try {
                     socket = new Socket(ip, 8000);
@@ -84,13 +84,13 @@ public class Controller implements Initializable {
                     e.printStackTrace();
                 }
 
-                // read thread
 
-
+                // READING NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
                 while (true) {
-                    // READING A NEXT MESSAGE FROM THE SERVER AND APPENDING IT TO CHATBOX IN SCENE2
                     String message = fromServer.readUTF();
                     chatBox.appendText(message);
+
+                    // IF THE MESSAGE FROM THE SERVER EQUALS "STARTTHEGAME" THE LOOP BREAKS AND SCENE CHANGES.
                     if (message.equalsIgnoreCase("STARTTHEGAME")) {
                         if (!iPressed) {
                             sendMessage("");
