@@ -1,15 +1,8 @@
 package sample;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -51,8 +44,6 @@ public class Controller implements Initializable {
     public TextField chatMessage = new TextField();
     public TextArea quizBox;
 
-
-
     public AnchorPane scene0;
     public AnchorPane scene1;
     public AnchorPane scene2;
@@ -75,11 +66,13 @@ public class Controller implements Initializable {
         scene5.setVisible(false);
 
 
-// While loop her.
+        // While loop her.
         new Thread(() -> {
-            while (!joinServer && ip != "localhost") {
+            while (!joinServer && ip != "localhost")
+            {
                 System.out.println("waiting for IP");
             }
+
             Socket socket = null;
 
             try {
@@ -152,10 +145,7 @@ public class Controller implements Initializable {
                 e.printStackTrace();
             }
         }).start();
-
-
-
-        }
+    }
 
 
 
