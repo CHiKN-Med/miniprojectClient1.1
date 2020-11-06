@@ -11,5 +11,6 @@ Run the client's main class and enter the IP of the host. If desired, the user w
 Once a username has been set, the user will enter the chat lobby. In here the user can chat or start the quiz which will prompt every user into the quiz.
 
 4.
-In the quiz, the user will be presented a question with 4 buttons to select the answer. Once the quiz is complete, a waiting screen will be prompted for the clients that has finished, until all clients finish the quiz. Once everybody has answered, the window will display the winner and a leaderboard with all users.
+In the quiz, the user will be presented a question with 4 buttons to select the answer. The user can also use key 1-4 on their keyboard to choose the input.
+Once the quiz is complete, a waiting screen will be prompted for the clients that has finished, until all clients finish the quiz. Once everybody has answered, the window will display the winner and a leaderboard with all users.
 
