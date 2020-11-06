@@ -92,25 +92,27 @@ public class Controller implements Initializable {
 
                     // IF THE MESSAGE FROM THE SERVER EQUALS "STARTTHEGAME" THE LOOP BREAKS AND SCENE CHANGES.
                     if (message.equalsIgnoreCase("STARTTHEGAME")) {
-                        if (!iPressed) {
+                        if (!iPressed)
+
+                        { // IF THE CLIENTS NOT IS THE ONE WHO PRESSED START GAME, THE CLIENT SENDS AN EMPTY MESSAGE TO FIX BUG AND SYNCRONIZE
                             sendMessage("");
                         }
+
                         scene2.setVisible(false);
                         scene3.setVisible(true);
                         break;
                     }
                 }
 
-                // QUIZ LOOP -->
+                // LOOP WHICH APPENDS QUESTION, OPTIONS AND RIGHT ANSWER TO THE SCENE
                 while (true) {
-
                     // READ FIRST MESSAGE FROM THE SERVER (THE QUESTION)
                     String message = fromServer.readUTF();
                     // WHEN THE FIRST MESSAGE IS READ CLEAR ALL TEXTAREAS
                     quizBox.clear();
                     quizAnswerOptions.clear();
                     correctAnswer.clear();
-
+                    // IF THE MESSAGE IS "STOPTHEGAME" THE LOOP BREAKS
                     if (message.equalsIgnoreCase("STOPTHEGAME")) {
                         scene3.setVisible(false);
                         scene4.setVisible(true);
@@ -119,27 +121,31 @@ public class Controller implements Initializable {
 
                     // APPEND QUESTION TO QUIZ BOX
                     quizBox.appendText(message);
-                    // READ
+                    // READ NEXT MESSAGE (THE OPTIONS)
                     message = fromServer.readUTF();
+                    // APPENDING THE OPTION TO quizAnswerOptions
                     quizAnswerOptions.appendText(message);
-
+                    // READ NEXT MESSAGE (THE RIGHT ANSWER)
                     message = fromServer.readUTF();
+                    // APPENDING MESSAGE TO correctAnswerBox
                     correctAnswer.appendText(message);
                 }
 
-                // WAITING
+                // WAITING FOR THE NEXT MESSAGE FROM SERVER - THE NEXT MESSAGE SHOULD BE "SHOWTHESCORE" WHEN EVERY CLIENT IS DONE
+                // AND THEN THE CLIENT CHANGES SCENE
                 String message = fromServer.readUTF();
                 if (message.equalsIgnoreCase("SHOWTHESCORE")){
                     scene4.setVisible(false);
                     scene5.setVisible(true);}
 
-                // SCOREBOARD
+                // READING NEXT MESSAGE FROM SERVER (THE WINNER)
                 String messageFromServer = fromServer.readUTF();
+                // APPENDING MESSAGE
                 winnerNameBox.appendText(messageFromServer);
+                // READING NEXT MESSAGE FROM SERVER (THE SCOREBOARD)
                 String messageFromServer2 = fromServer.readUTF();
+                // APPENDING MESSAGE
                 scoreBoardBox.appendText(messageFromServer2);
-
-
 
             } catch (IOException e) {
                 e.printStackTrace();
